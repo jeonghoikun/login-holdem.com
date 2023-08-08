@@ -33,6 +33,16 @@ func Get(do, si, dong, storeType, title string) (o *Store, has bool) {
 
 func ListAllStores() []*Store { return stores }
 
+func ListStoresByDoSiAndStoreType(do, si, storeType string) []*Store {
+	list := []*Store{}
+	for _, s := range stores {
+		if s.Location.Do == do && s.Location.Si == si && s.Type == storeType {
+			list = append(list, s)
+		}
+	}
+	return list
+}
+
 type Location struct {
 	// Do: 서울
 	Do string

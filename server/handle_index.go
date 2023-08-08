@@ -14,6 +14,7 @@ import (
 
 type indexHandler struct{}
 
+// GET /
 func (*indexHandler) index(c *fiber.Ctx) error {
 	m := fiber.Map{
 		"Page": &PageConfig{
@@ -34,6 +35,7 @@ func (*indexHandler) index(c *fiber.Ctx) error {
 	return c.Status(http.StatusOK).Render("index", m, "layout/index")
 }
 
+// GET /robots.txt
 func (*indexHandler) robots(c *fiber.Ctx) error {
 	var ss []string
 	ss = append(ss, "User-agent: *")
@@ -42,6 +44,7 @@ func (*indexHandler) robots(c *fiber.Ctx) error {
 	return c.Status(http.StatusOK).SendString(strings.Join(ss, "\n"))
 }
 
+// GET /sitemap.xml
 func (*indexHandler) sitemap(c *fiber.Ctx) error {
 	var ss []string
 	ss = append(ss, `<?xml version="1.0" encoding="UTF-8"?>`)
@@ -99,6 +102,7 @@ func (*indexHandler) sitemap(c *fiber.Ctx) error {
 	return c.Status(http.StatusOK).SendString(strings.Join(ss, "\n"))
 }
 
+// BaseURL = /
 func handleIndex(r fiber.Router) {
 	h := &indexHandler{}
 	r.Get("/", h.index)
