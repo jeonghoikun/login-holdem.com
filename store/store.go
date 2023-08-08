@@ -2,6 +2,7 @@ package store
 
 import (
 	"fmt"
+	"sort"
 	"strings"
 	"time"
 
@@ -148,11 +149,19 @@ func setPhoneNumbers() {
 	}
 }
 
+func sortStores() {
+	sort.Slice(stores, func(i, j int) bool {
+		return stores[i].DatePublished.UnixNano() < stores[j].DatePublished.UnixNano()
+	})
+}
+
 func Init() {
 	initHighPublic()
 	// initShirtRoom()
 	// initHobba()
 	// ..
+
+	sortStores()
 
 	setStoreKeywords()
 	setPhoneNumbers()
