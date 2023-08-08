@@ -32,36 +32,6 @@ func Get(do, si, dong, storeType, title string) (o *Store, has bool) {
 
 func ListAllStores() []*Store { return stores }
 
-func ListStoresByDo(do string) []*Store {
-	list := []*Store{}
-	for _, s := range stores {
-		if s.Location.Do == do {
-			list = append(list, s)
-		}
-	}
-	return list
-}
-
-func ListStoresByDoSi(do, si string) []*Store {
-	list := []*Store{}
-	for _, s := range stores {
-		if s.Location.Do == do && s.Location.Si == si {
-			list = append(list, s)
-		}
-	}
-	return list
-}
-
-func ListStoresByDoSiDong(do, si, dong string) []*Store {
-	list := []*Store{}
-	for _, s := range stores {
-		if s.Location.Do == do && s.Location.Si == si && s.Location.Dong == dong {
-			list = append(list, s)
-		}
-	}
-	return list
-}
-
 type Location struct {
 	// Do: 서울
 	Do string

@@ -40,8 +40,7 @@ func (*indexHandler) sitemap(c *fiber.Ctx) error {
 	ss = append(ss, fmt.Sprintf(`<lastmod>%s</lastmod>`, dateModified))
 	ss = append(ss, `</url>`)
 
-	// categories
-	// TODO:
+	// categories by store type
 
 	// stores
 	for _, s := range store.ListAllStores() {
