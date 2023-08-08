@@ -113,6 +113,10 @@ func initHighPublic() {
 		Type:        STORE_TYPE_HIGHPUBLIC,
 		Title:       "메이커",
 		Description: "메이커 is ...",
+		Active: &Active{
+			IsPermanentClosed: false,
+			Reason:            "",
+		},
 	})
 	stores = append(stores, &Store{
 		Location: &Location{
@@ -125,6 +129,10 @@ func initHighPublic() {
 		Type:        STORE_TYPE_HIGHPUBLIC,
 		Title:       "메이커2",
 		Description: "메이커2 is ...",
+		Active: &Active{
+			IsPermanentClosed: false,
+			Reason:            "",
+		},
 	})
 	// ..
 }
