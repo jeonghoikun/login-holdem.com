@@ -20,7 +20,7 @@ type config struct {
 	Keywords      *Keywords
 	DatePublished time.Time
 	DateModified  time.Time
-	PhoneNumber   map[string]string
+	PhoneNumber   string
 }
 
 func date(year, month, day int) time.Time {
@@ -38,11 +38,7 @@ func Init() {
 	c.Keywords = &k
 	c.DatePublished = date(2023, 8, 5)
 	c.DateModified = date(2023, 8, 5)
-	c.PhoneNumber = map[string]string{
-		"Global": "010-1234-1234",
-		// 특정 업종에 따라 폰번호가 달라야하는경우 아래에 하드코딩으로 추가
-		// "Hobba": "010-2345-2345,
-		// "Club":  "010-4321-4321,
-	}
+	// 업종마다 전화번호가 다른경우 store/store.go 파일의 setPhoneNumber 함수에서 하드코딩
+	c.PhoneNumber = "010-1234-1234"
 	Config = c
 }
