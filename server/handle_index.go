@@ -17,14 +17,18 @@ type indexHandler struct{}
 func (*indexHandler) index(c *fiber.Ctx) error {
 	m := fiber.Map{
 		"Page": &PageConfig{
-			Path:          c.Path(),
-			Author:        site.Config.Author,
+			Path: c.Path(),
+			Author: &Author{
+				Name:        site.Config.Author,
+				ProfilePath: "/static/img/site/author/profile.png",
+			},
 			Title:         site.Config.Title,
 			Description:   site.Config.Description,
 			Keywords:      site.Config.Keywords.String(),
 			PhoneNumber:   site.Config.PhoneNumber,
 			DatePublished: site.Config.DatePublished,
 			DateModified:  site.Config.DateModified,
+			ThumbnailPath: "/static/img/site/thumbnail/thumb.png",
 		},
 	}
 	return c.Status(http.StatusOK).Render("index", m, "layout/index")

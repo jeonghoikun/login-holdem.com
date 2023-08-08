@@ -11,16 +11,21 @@ type Keywords []string
 
 func (k *Keywords) String() string { return strings.Join(*k, ",") }
 
+type searchEngineConnection struct {
+	Google string
+}
+
 type config struct {
-	Port          uint32
-	Domain        string
-	Author        string
-	Title         string
-	Description   string
-	Keywords      *Keywords
-	DatePublished time.Time
-	DateModified  time.Time
-	PhoneNumber   string
+	Port                   uint32
+	Domain                 string
+	Author                 string
+	Title                  string
+	Description            string
+	Keywords               *Keywords
+	DatePublished          time.Time
+	DateModified           time.Time
+	PhoneNumber            string
+	SearchEngineConnection *searchEngineConnection
 }
 
 func date(year, month, day int) time.Time {
@@ -40,5 +45,8 @@ func Init() {
 	c.DateModified = date(2023, 8, 5)
 	// 업종마다 전화번호가 다른경우 store/store.go 파일의 setPhoneNumber 함수에서 하드코딩
 	c.PhoneNumber = "010-1234-1234"
+	c.SearchEngineConnection = &searchEngineConnection{
+		Google: "GOOGLE_SITE_VERIFICATION",
+	}
 	Config = c
 }

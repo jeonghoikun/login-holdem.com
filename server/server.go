@@ -2,11 +2,13 @@ package server
 
 import (
 	"fmt"
+	"math/rand"
 	"time"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/compress"
 	"github.com/gofiber/template/html/v2"
+	"github.com/jeonghoikun/webserver/site"
 )
 
 type port uint32
@@ -22,11 +24,23 @@ type engineFunc struct{}
 
 func (*engineFunc) time() time.Time { return time.Now() }
 
+func (*engineFunc) withHost(s string) string {
+	return fmt.Sprintf("https://%s%s", site.Config.Domain, s)
+}
+
+func (*engineFunc) randFileNumber() int {
+	min := 0
+	max := 1000
+	return rand.Intn(max-min) + min
+}
+
 func engine() *html.Engine {
 	e := html.New("./views", ".html")
 	e.Reload(true)
 	ef := &engineFunc{}
 	e.AddFunc("Time", ef.time)
+	e.AddFunc("WithHost", ef.withHost)
+	e.AddFunc("RandFileNumber", ef.randFileNumber)
 	return e
 }
 
@@ -45,7 +59,10 @@ func (s *Server) set() {
 }
 
 func (s *Server) middlewares() {
-	s.app.Use("/", compress.New(compress.Config{Level: compress.Level(2)}))
+	s.app.Use("/",
+		compress.New(compress.Config{Level: compress.Level(2)}),
+		bindSiteConfig,
+	)
 }
 
 func (s *Server) routes() {
@@ -59,14 +76,19 @@ func (s *Server) Run() error {
 	return s.app.Listen(s.port.String())
 }
 
+type Author struct {
+	Name        string
+	ProfilePath string
+}
+
 type PageConfig struct {
 	Path          string
-	Author        string
+	Author        *Author
 	Title         string
 	Description   string
 	Keywords      string
 	PhoneNumber   string
 	DatePublished time.Time
 	DateModified  time.Time
-	Thumbnail     string
+	ThumbnailPath string
 }
