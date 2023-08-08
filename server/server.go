@@ -58,3 +58,15 @@ func (s *Server) Run() error {
 	s.routes()
 	return s.app.Listen(s.port.String())
 }
+
+type PageConfig struct {
+	Path          string
+	Author        string
+	Title         string
+	Description   string
+	Keywords      string
+	PhoneNumber   string
+	DatePublished time.Time
+	DateModified  time.Time
+	Thumbnail     string
+}

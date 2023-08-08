@@ -15,7 +15,19 @@ import (
 type indexHandler struct{}
 
 func (*indexHandler) index(c *fiber.Ctx) error {
-	return c.Status(http.StatusOK).SendString("index")
+	m := fiber.Map{
+		"Page": &PageConfig{
+			Path:          c.Path(),
+			Author:        site.Config.Author,
+			Title:         site.Config.Title,
+			Description:   site.Config.Description,
+			Keywords:      site.Config.Keywords.String(),
+			PhoneNumber:   site.Config.PhoneNumber,
+			DatePublished: site.Config.DatePublished,
+			DateModified:  site.Config.DateModified,
+		},
+	}
+	return c.Status(http.StatusOK).Render("index", m, "layout/index")
 }
 
 func (*indexHandler) robots(c *fiber.Ctx) error {
