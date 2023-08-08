@@ -1,6 +1,7 @@
 package store
 
 import (
+	"fmt"
 	"strings"
 )
 
@@ -81,7 +82,7 @@ type Store struct {
 	// Description: 가게 설명 하드코딩
 	Description string
 	// Keywords: 하드코딩 X. 서버 시작시 지역명, 가게이름, 업종 등으로 자동 초기화 됨
-	Keywords string
+	Keywords Keywords
 	// Active: 영업, 폐업 유무와 폐업사유 하드코딩
 	Active *Active
 	// PhoneNumber: 하드코딩 X.
@@ -117,9 +118,25 @@ func initHighPublic() {
 	// ..
 }
 
+func setStoreKeywords() {
+	for _, s := range stores {
+		s.Keywords = Keywords([]string{
+			fmt.Sprintf("%s %s %s %s %s", s.Location.Do, s.Location.Si, s.Location.Dong, s.Type, s.Title),
+			fmt.Sprintf("%s %s", s.Location.Do, s.Type),
+			fmt.Sprintf("%s %s %s", s.Location.Do, s.Location.Si, s.Type),
+			fmt.Sprintf("%s %s %s %s", s.Location.Do, s.Location.Si, s.Location.Dong, s.Type),
+			fmt.Sprintf("%s %s", s.Title, s.Type),
+			fmt.Sprintf("%s %s 가격", s.Title, s.Type),
+			fmt.Sprintf("%s %s 시스템", s.Title, s.Type),
+			fmt.Sprintf("%s %s 주소", s.Title, s.Type),
+		})
+	}
+}
+
 func Init() {
 	initHighPublic()
 	// initShirtRoom()
 	// initHobba()
 	// ..
+	setStoreKeywords()
 }
