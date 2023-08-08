@@ -3,6 +3,7 @@ package store
 import (
 	"fmt"
 	"strings"
+	"time"
 
 	"github.com/jeonghoikun/webserver/site"
 )
@@ -99,6 +100,14 @@ type Store struct {
 	Active *Active
 	// PhoneNumber: 하드코딩 X.
 	PhoneNumber string
+	// 생성일
+	DatePublished time.Time
+	// 수정일
+	DateModified time.Time
+}
+
+func storeDate(year, month, day int) time.Time {
+	return time.Date(year, time.Month(month), day, 0, 0, 0, 0, time.Local)
 }
 
 func initHighPublic() {
@@ -117,6 +126,8 @@ func initHighPublic() {
 			IsPermanentClosed: false,
 			Reason:            "",
 		},
+		DatePublished: storeDate(2023, 8, 5),
+		DateModified:  storeDate(2023, 8, 5),
 	})
 	stores = append(stores, &Store{
 		Location: &Location{
@@ -133,6 +144,8 @@ func initHighPublic() {
 			IsPermanentClosed: false,
 			Reason:            "",
 		},
+		DatePublished: storeDate(2023, 8, 5),
+		DateModified:  storeDate(2023, 8, 5),
 	})
 	// ..
 }
