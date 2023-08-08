@@ -3,6 +3,18 @@ package store
 import (
 	"fmt"
 	"strings"
+
+	"github.com/jeonghoikun/webserver/site"
+)
+
+const (
+	STORE_TYPE_HIGHPUBLIC string = "하이퍼블릭"
+	STORE_TYPE_SHIRTROOM  string = "셔츠룸"
+	STORE_TYPE_KARAOKE    string = "가라오케"
+	STORE_TYPE_LEGGINGS   string = "레깅스룸"
+	STORE_TYPE_DOT5       string = "쩜오"
+	STORE_TYPE_HOBBA      string = "호빠"
+	STORE_TYPE_CLUB       string = "클럽"
 )
 
 var stores []*Store = []*Store{}
@@ -90,7 +102,6 @@ type Store struct {
 }
 
 func initHighPublic() {
-	storeType := "하이퍼블릭"
 	stores = append(stores, &Store{
 		Location: &Location{
 			Do:           "서울",
@@ -99,7 +110,7 @@ func initHighPublic() {
 			Address:      "822-5",
 			GoogleMapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.3849794120856!2d127.02926860000001!3d37.4988373!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca159d7d08f47%3A0x19ac7457d361928!2z7ISc7Jq47Yq567OE7IucIOqwleuCqOq1rCDthYztl6TrnoDroZwgMTEx!5e0!3m2!1sko!2skr!4v1661153125692!5m2!1sko!2skr",
 		},
-		Type:        storeType,
+		Type:        STORE_TYPE_HIGHPUBLIC,
 		Title:       "메이커",
 		Description: "메이커 is ...",
 	})
@@ -111,7 +122,7 @@ func initHighPublic() {
 			Address:      "822-5",
 			GoogleMapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.3849794120856!2d127.02926860000001!3d37.4988373!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca159d7d08f47%3A0x19ac7457d361928!2z7ISc7Jq47Yq567OE7IucIOqwleuCqOq1rCDthYztl6TrnoDroZwgMTEx!5e0!3m2!1sko!2skr!4v1661153125692!5m2!1sko!2skr",
 		},
-		Type:        storeType,
+		Type:        STORE_TYPE_HIGHPUBLIC,
 		Title:       "메이커2",
 		Description: "메이커2 is ...",
 	})
@@ -133,10 +144,25 @@ func setStoreKeywords() {
 	}
 }
 
+func setPhoneNumbers() {
+	for _, s := range stores {
+		switch s.Type {
+		//		case STORE_TYPE_DOT5:
+		//			s.PhoneNumber = "010-2222-2222"
+		//		case STORE_TYPE_CLUB:
+		//			s.PhoneNumber = "010-3333-3333"
+		default:
+			s.PhoneNumber = site.Config.PhoneNumber
+		}
+	}
+}
+
 func Init() {
 	initHighPublic()
 	// initShirtRoom()
 	// initHobba()
 	// ..
+
 	setStoreKeywords()
+	setPhoneNumbers()
 }
