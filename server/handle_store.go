@@ -56,7 +56,9 @@ func (*storeHandler) page(c *fiber.Ctx) error {
 		},
 		"Store": store,
 	}
-	return c.Status(http.StatusOK).Render("store/index", m, "layout/store")
+	embedFilePath := fmt.Sprintf("store/%s/%s/%s/%s/%s",
+		store.Location.Do, store.Location.Si, store.Location.Dong, store.Type, store.Title)
+	return c.Status(http.StatusOK).Render(embedFilePath, m, "layout/store")
 }
 
 // BaseURL = /store
