@@ -1,16 +1,62 @@
 package server
 
 import (
+	"fmt"
 	"net/http"
+	"net/url"
 
 	"github.com/gofiber/fiber/v2"
+	"github.com/jeonghoikun/webserver/site"
+	"github.com/jeonghoikun/webserver/store"
 )
 
 type storeHandler struct{}
 
 // GET /store/:do/:si/:dong/:storeType/:title
 func (*storeHandler) page(c *fiber.Ctx) error {
-	return c.Status(http.StatusOK).SendString("store page")
+	do, err := url.QueryUnescape(c.Params("do"))
+	if err != nil {
+		return c.Status(http.StatusBadRequest).SendString(err.Error())
+	}
+	si, err := url.QueryUnescape(c.Params("si"))
+	if err != nil {
+		return c.Status(http.StatusBadRequest).SendString(err.Error())
+	}
+	dong, err := url.QueryUnescape(c.Params("dong"))
+	if err != nil {
+		return c.Status(http.StatusBadRequest).SendString(err.Error())
+	}
+	storeType, err := url.QueryUnescape(c.Params("storeType"))
+	if err != nil {
+		return c.Status(http.StatusBadRequest).SendString(err.Error())
+	}
+	storeTitle, err := url.QueryUnescape(c.Params("storeTitle"))
+	if err != nil {
+		return c.Status(http.StatusBadRequest).SendString(err.Error())
+	}
+	store, has := store.Get(do, si, dong, storeType, storeTitle)
+	if !has {
+		return c.Status(http.StatusNotFound).SendString(err.Error())
+	}
+	m := fiber.Map{
+		"Page": &PageConfig{
+			Path: c.Path(),
+			Author: &Author{
+				Name:        site.Config.Author,
+				ProfilePath: "/static/img/site/author/profile.png",
+			},
+			Title:         fmt.Sprintf("%s %s %s %s", store.Location.Do, store.Location.Si, store.Title, store.Type),
+			Description:   store.Description,
+			Keywords:      store.Keywords.String(),
+			PhoneNumber:   store.PhoneNumber,
+			DatePublished: store.DatePublished,
+			DateModified:  store.DateModified,
+			ThumbnailPath: fmt.Sprintf("/static/img/store/%s/%s/%s/%s/%s/thumbnail.png",
+				store.Location.Do, store.Location.Si, store.Location.Dong, store.Type, store.Title),
+		},
+		"Store": store,
+	}
+	return c.Status(http.StatusOK).Render("store/index", m, "layout/store")
 }
 
 // BaseURL = /store
