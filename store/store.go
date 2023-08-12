@@ -166,6 +166,7 @@ func sortStores() {
 	})
 }
 
+// 서버 시작시 vieiws/store directories 자동 생성
 func createViewsDirectories() error {
 	for _, s := range stores {
 		dir := fmt.Sprintf("views/store/%s/%s/%s/%s",
@@ -177,6 +178,7 @@ func createViewsDirectories() error {
 	return nil
 }
 
+// 서버 시작시 views/store/../../{{store.Title}}.html 파일 자동 생성
 func createHTMLFiles() error {
 	for _, s := range stores {
 		filepath := fmt.Sprintf("views/store/%s/%s/%s/%s/%s.html",
@@ -186,6 +188,18 @@ func createHTMLFiles() error {
 			continue
 		}
 		if err := os.WriteFile(filepath, []byte("write me!"), os.ModePerm); err != nil {
+			return err
+		}
+	}
+	return nil
+}
+
+// 서버 시작시 store 이미지 디렉토리 자동 생성
+func createStaticImgDirectories() error {
+	for _, s := range stores {
+		dir := fmt.Sprintf("static/img/store/%s/%s/%s/%s/%s",
+			s.Location.Do, s.Location.Si, s.Location.Dong, s.Type, s.Title)
+		if err := os.MkdirAll(dir, os.ModePerm); err != nil {
 			return err
 		}
 	}
@@ -209,6 +223,8 @@ func Init() error {
 	if err := createHTMLFiles(); err != nil {
 		return err
 	}
-	//	createStaticImgDirectories()
+	if err := createStaticImgDirectories(); err != nil {
+		return err
+	}
 	return nil
 }
