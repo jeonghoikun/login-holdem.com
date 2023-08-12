@@ -16,7 +16,9 @@ func init() {
 	}
 	time.Local = loc
 	site.Init()
-	store.Init()
+	if err := store.Init(); err != nil {
+		panic(err)
+	}
 }
 
 func main() {
