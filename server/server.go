@@ -67,6 +67,7 @@ func (s *Server) middlewares() {
 
 func (s *Server) routes() {
 	handleCategory(s.app.Group("/category"))
+	handleStore(s.app.Group("/store"))
 	handleIndex(s.app.Group("/"))
 }
 
