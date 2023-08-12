@@ -52,7 +52,7 @@ func (*categoryHandler) listPage(c *fiber.Ctx) error {
 		ThumbnailPath: "/static/img/site/thumbnail/thumb.png",
 	}
 	m["Stores"] = listStores
-	return c.Status(http.StatusOK).JSON(m)
+	return c.Status(http.StatusOK).Render("category/index", m, "layout/category")
 }
 
 // BaseURL = /category
