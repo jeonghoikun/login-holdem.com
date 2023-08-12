@@ -12,7 +12,7 @@ import (
 
 type storeHandler struct{}
 
-// GET /store/:do/:si/:dong/:storeType/:title
+// GET /store/:do/:si/:dong/:type/:title
 func (*storeHandler) page(c *fiber.Ctx) error {
 	do, err := url.QueryUnescape(c.Params("do"))
 	if err != nil {
@@ -26,17 +26,17 @@ func (*storeHandler) page(c *fiber.Ctx) error {
 	if err != nil {
 		return c.Status(http.StatusBadRequest).SendString(err.Error())
 	}
-	storeType, err := url.QueryUnescape(c.Params("storeType"))
+	storeType, err := url.QueryUnescape(c.Params("type"))
 	if err != nil {
 		return c.Status(http.StatusBadRequest).SendString(err.Error())
 	}
-	storeTitle, err := url.QueryUnescape(c.Params("storeTitle"))
+	storeTitle, err := url.QueryUnescape(c.Params("title"))
 	if err != nil {
 		return c.Status(http.StatusBadRequest).SendString(err.Error())
 	}
 	store, has := store.Get(do, si, dong, storeType, storeTitle)
 	if !has {
-		return c.Status(http.StatusNotFound).SendString(err.Error())
+		return c.Status(http.StatusNotFound).SendString("Store not found")
 	}
 	m := fiber.Map{
 		"Page": &PageConfig{
@@ -62,5 +62,5 @@ func (*storeHandler) page(c *fiber.Ctx) error {
 // BaseURL = /store
 func handleStore(r fiber.Router) {
 	h := &storeHandler{}
-	r.Get("/:do/:si/:dong/:storeType/:title", h.page)
+	r.Get("/:do/:si/:dong/:type/:title", h.page)
 }
