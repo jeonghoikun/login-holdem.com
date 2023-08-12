@@ -14,3 +14,4 @@
 10. $ npm i -D tailwindcss
 11. site/config.go 파일에서 웹사이트의 기본 정보를 하드코딩
 12. store/store.go 파일에서 가게정보들 하드코딩
+13. static/img/favicon 에서 새로운 파비콘 이미지로 교체
