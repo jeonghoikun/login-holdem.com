@@ -44,13 +44,13 @@ func ListStoresByDoSiAndStoreType(do, si, storeType string) []*Store {
 }
 
 type Location struct {
-	// Do: 서울
+	// Do: ex) 서울
 	Do string
-	// Si: 강남구
+	// Si: ex) 강남구
 	Si string
-	// Dong: 역삼동
+	// Dong: ex) 역삼동
 	Dong string
-	// Address: 822-5
+	// Address: ex) 822-5
 	Address string
 	// GoogleMapSrc: iframe google map의 src속성 값
 	GoogleMapSrc string
