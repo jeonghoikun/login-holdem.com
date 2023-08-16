@@ -35,7 +35,7 @@ func date(year, month, day int) time.Time {
 func Init() {
 	c := &config{}
 	c.Port = uint32(8000)
-	c.Domain = "example002.com"
+	c.Domain = "domain.com"
 	c.Author = "author"
 	c.Title = "title"
 	c.Description = "description"

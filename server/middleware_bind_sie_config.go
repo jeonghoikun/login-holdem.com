@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/gofiber/fiber/v2"
-	"github.com/jeonghoikun/example002.com/site"
+	"github.com/jeonghoikun/webserver/site"
 )
 
 func bindSiteConfig(c *fiber.Ctx) error {
