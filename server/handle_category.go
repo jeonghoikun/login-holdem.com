@@ -7,8 +7,8 @@ import (
 	"strings"
 
 	"github.com/gofiber/fiber/v2"
-	"github.com/jeonghoikun/webserver/site"
-	"github.com/jeonghoikun/webserver/store"
+	"github.com/jeonghoikun/example002.com/site"
+	"github.com/jeonghoikun/example002.com/store"
 )
 
 type categoryHandler struct{}

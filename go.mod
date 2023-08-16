@@ -1,4 +1,4 @@
-module github.com/jeonghoikun/webserver
+module github.com/jeonghoikun/example002.com
 
 go 1.19
 
