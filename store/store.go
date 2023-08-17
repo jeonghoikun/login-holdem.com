@@ -84,20 +84,15 @@ type Hour struct {
 	Part2 *TimeType
 }
 
-type MenuItem struct {
-	Name  string
-	Price int
-}
-
 type Menu struct {
 	// Part1Whisky: 1부 주대
-	Part1Whisky *MenuItem
+	Part1Whisky int
 	// Part2Whisky: 2부 주대
-	Part2Whisky *MenuItem
+	Part2Whisky int
 	// TC: 아가씨 티시
-	TC *MenuItem
+	TC int
 	// RT: 룸비
-	RT *MenuItem
+	RT int
 }
 
 type Store struct {
@@ -144,6 +139,11 @@ func initHighPublic() {
 			IsPermanentClosed: false,
 			Reason:            "",
 		},
+		Hour: &Hour{
+			Part1: &TimeType{Has: true, Open: "18:00", Closed: "01:00"},
+			Part2: &TimeType{Has: true, Open: "01:00", Closed: "15:00"},
+		},
+		Menu:          &Menu{Part1Whisky: 170000, Part2Whisky: 140000, TC: 110000, RT: 50000},
 		DatePublished: storeDate(2023, 8, 5),
 		DateModified:  storeDate(2023, 8, 5),
 	})
@@ -162,6 +162,11 @@ func initHighPublic() {
 			IsPermanentClosed: false,
 			Reason:            "",
 		},
+		Hour: &Hour{
+			Part1: &TimeType{Has: true, Open: "18:00", Closed: "01:00"},
+			Part2: &TimeType{Has: true, Open: "01:00", Closed: "15:00"},
+		},
+		Menu:          &Menu{Part1Whisky: 170000, Part2Whisky: 140000, TC: 110000, RT: 50000},
 		DatePublished: storeDate(2023, 8, 5),
 		DateModified:  storeDate(2023, 8, 5),
 	})
