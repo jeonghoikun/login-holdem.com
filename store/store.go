@@ -78,8 +78,26 @@ type TimeType struct {
 }
 
 type Hour struct {
+	// Part1: 1부
 	Part1 *TimeType
+	// Part2: 2부
 	Part2 *TimeType
+}
+
+type MenuItem struct {
+	Name  string
+	Price int
+}
+
+type Menu struct {
+	// Part1Whisky: 1부 주대
+	Part1Whisky *MenuItem
+	// Part2Whisky: 2부 주대
+	Part2Whisky *MenuItem
+	// TC: 아가씨 티시
+	TC *MenuItem
+	// RT: 룸비
+	RT *MenuItem
 }
 
 type Store struct {
@@ -94,8 +112,10 @@ type Store struct {
 	Keywords Keywords
 	// Active: 영업, 폐업 유무와 폐업사유 하드코딩
 	Active *Active
-	// Hour: 영업시간
+	// Hour: 영업시간 하드코딩
 	Hour *Hour
+	// Price: 가격 하드코딩
+	Menu *Menu
 	// PhoneNumber: 하드코딩 X.
 	PhoneNumber string
 	// 생성일
