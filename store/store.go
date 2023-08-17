@@ -68,6 +68,20 @@ type Active struct {
 	Reason string
 }
 
+type TimeType struct {
+	// Has: 유무
+	Has bool
+	// Open: 오픈시간. ex) 18:00
+	Open string
+	// Closed: 마감시간. ex) 00:00
+	Closed string
+}
+
+type Hour struct {
+	Part1 *TimeType
+	Part2 *TimeType
+}
+
 type Store struct {
 	Location *Location
 	// Type: 업종 하드코딩
@@ -80,6 +94,8 @@ type Store struct {
 	Keywords Keywords
 	// Active: 영업, 폐업 유무와 폐업사유 하드코딩
 	Active *Active
+	// Hour: 영업시간
+	Hour *Hour
 	// PhoneNumber: 하드코딩 X.
 	PhoneNumber string
 	// 생성일
