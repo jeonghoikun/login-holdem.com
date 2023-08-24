@@ -8,26 +8,34 @@
 </head>
 <body class="antialiased bg-[#020230] text-slate-300">
 	<header class="w-full h-screen relative container mx-auto">
-		<nav class="absolute top-0 inset-x-0">
-			<ul class="p-6 flex font-semibold text-center">
-				<li class="inline-block flex-1">
-					<a class="inline-block text-slate-200 hover:text-slate-100" href="#information">정보</a>
-				</li>
-				<li class="inline-block flex-1">
-					<a class="inline-block text-slate-200 hover:text-slate-100" href="#">이벤트</a>
-				</li>
-				<li class="inline-block flex-1">
-					<a class="inline-block text-slate-200 hover:text-slate-100" href="#">오시는길</a>
-				</li>
-				<li class="inline-block flex-1">
-					<a class="inline-block hover:text-slate-100" href="#">소개</a>
-				</li>
-			</ul>
-		</nav>
-		<div class="flex items-center justify-center h-full max-w-[1170px] mx-auto">
+		<div class="sm:absolute top-0 inset-x-0 w-full sm:flex items-center justify-between p-6 space-y-3 sm:space-y-0">
+			<div>
+				<img class="block w-10 mx-auto" src="/static/img/site/logo/96.png" alt="{{.Site.Config.Title}} 로고">
+			</div>
+			<nav>
+				<ul class="font-semibold text-center text-slate-100 space-x-3 sm:space-x-10 space-y-3 sm:space-y-0">
+					<li class="inline-block flex-1">
+						<a href="#information">정보</a>
+					</li>
+					<li class="inline-block flex-1">
+						<a href="#about">소개</a>
+					</li>
+					<li class="inline-block flex-1">
+						<a href="#image">사진</a>
+					</li>
+					<li class="inline-block flex-1">
+						<a href="#holdem">텍사스홀덤</a>
+					</li>
+					<li class="inline-block flex-1">
+						<a href="#address">오시는길</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+		<div class="mt-6 sm:mt-0 sm:flex items-center justify-center h-full max-w-[1170px] mx-auto">
 			<div class="sm:flex items-center justify-center px-6">
 				<div class="flex-1">
-					<h1 class="text-2xl text-slate-100 font-extrabold">{{.Page.Title}}</h1>
+					<h1 class="text-3xl text-slate-100 font-extrabold">{{.Page.Title}}</h1>
 					<p class="mt-8 text-slate-100 text-sm font-semibold">{{.Page.Description}}</p>
 					<a class="inline-block mt-6 bg-sky-500 hover:bg-sky-400 text-slate-100 font-semibold rounded-md px-6 py-2 duration-300" href="tel:{{.Site.Config.PhoneNumber}}">오프홀덤 문의 전화</a>
 				</div>
