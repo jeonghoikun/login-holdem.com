@@ -707,6 +707,10 @@ video {
   height: auto;
 }
 
+.h-\[300px\]{
+  height: 300px;
+}
+
 .max-h-\[250\]{
   max-height: 250;
 }
@@ -830,6 +834,10 @@ video {
 
 .resize{
   resize: both;
+}
+
+.list-disc{
+  list-style-type: disc;
 }
 
 .grid-cols-2{
@@ -1056,6 +1064,10 @@ video {
   padding-top: 5rem;
 }
 
+.pl-6{
+  padding-left: 1.5rem;
+}
+
 .text-center{
   text-align: center;
 }
@@ -1257,6 +1269,10 @@ video {
     display: flex;
   }
 
+  .sm\:grid{
+    display: grid;
+  }
+
   .sm\:h-auto{
     height: auto;
   }
@@ -1295,6 +1311,10 @@ video {
 
   .sm\:grid-cols-4{
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .sm\:grid-cols-2{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .sm\:gap-6{

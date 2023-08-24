@@ -1,6 +1,6 @@
-<section class="container mx-auto">
+<section id="information" class="container mx-auto">
 	<div class="px-6">
-		<h2 id="information" class="text-2xl font-extrabold text-center">강남홀덤 압구정홀덤 정보</h2>
+		<h2 class="text-2xl font-extrabold text-center">강남홀덤 압구정홀덤 정보</h2>
 		<ul class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-6 mt-10 text-center">
 			<li class="shadow shadow-black/30 rounded-md px-1 py-4">
 				<div>
@@ -79,11 +79,14 @@
 			</li>
 		</ul>
 	</div>
+	<div class="text-center">
+		<a class="inline-block mt-6 bg-sky-500 hover:bg-sky-400 text-slate-100 font-semibold rounded-md px-6 py-2 duration-300" href="tel:{{.Site.Config.PhoneNumber}}">홀덤 예약/문의 전화</a>
+	</div>
 </section>
-<section class="container mx-auto">
+<section id="about" class="container mx-auto">
 	<div class="px-6">
-		<h2 id="about" class="text-2xl font-extrabold text-center">강남홀덤 압구정홀덤 소개</h2>
-		<div class="sm:flex mt-6 space-y-6 sm:space-y-0 sm:space-x-6">
+		<h2 class="text-2xl font-extrabold text-center">강남홀덤 압구정홀덤 소개</h2>
+		<article class="sm:flex mt-6 space-y-6 sm:space-y-0 sm:space-x-6">
 			<div>
 				<h3 class="text-center font-semibold">강남홀덤</h3>
 				<div class="text-sm mt-3 space-y-3">
@@ -103,6 +106,54 @@
 					<p>압구정 홀덤은 자체적인 역사와 매력으로 가득한 곳으로서, 서울 경기권의 카드 게임 열풍을 주도하는 중요한 장소 중 하나입니다. 이곳은 플레이어들에게 탁월한 게임 환경과 다양한 경험을 제공하며, 카드 게임 애호가들에게 꼭 한 번 방문해보길 권해보고 싶은 특별한 장소입니다.</p>
 				</div>
 			</div>
+		</article>
+	</div>
+	<div class="text-center">
+		<a class="inline-block mt-6 bg-sky-500 hover:bg-sky-400 text-slate-100 font-semibold rounded-md px-6 py-2 duration-300" href="tel:{{.Site.Config.PhoneNumber}}">홀덤 예약/문의 전화</a>
+	</div>
+</section>
+<section id="image" class="container mx-auto">
+	<div class="px-6">
+		<h2 id="about" class="text-2xl font-extrabold text-center">강남홀덤 압구정홀덤 사진</h2>
+		<p class="text-center">게이트 내부사진 입니다</p>
+		<div class="mt-6 space-y-3 sm:space-y-0 sm:grid sm:grid-cols-2 md:grid-cols-4 gap-3">
+			<img class="block w-full" src="/static/img/index/table/1.png" alt="{{.Site.Config.Title}} 테이블 사진1">
+			<img class="block w-full" src="/static/img/index/table/2.png" alt="{{.Site.Config.Title}} 테이블 사진2">
+			<img class="block w-full" src="/static/img/index/table/3.png" alt="{{.Site.Config.Title}} 테이블 사진3">
+			<img class="block w-full" src="/static/img/index/table/4.png" alt="{{.Site.Config.Title}} 테이블 사진4">
+		</div>
+	</div>
+	<div class="text-center">
+		<a class="inline-block mt-6 bg-sky-500 hover:bg-sky-400 text-slate-100 font-semibold rounded-md px-6 py-2 duration-300" href="tel:{{.Site.Config.PhoneNumber}}">홀덤 예약/문의 전화</a>
+	</div>
+</section>
+<section id="holdem" class="container mx-auto">
+	<div class="px-6">
+		<h2 id="about" class="text-2xl font-extrabold text-center">텍사스홀덤</h2>
+		<div class="space-y-3 mt-6 text-sm">
+			<p>텍사스 홀덤(Texas Hold'em)은 가장 널리 알려진 포커 게임 중 하나로, 플레이어 간에 카드를 겨루는 게임입니다. 이 게임은 보통 2명부터 10명까지의 플레이어로 진행되며, 52장의 표준 포커 카드 덱을 사용합니다.</p>
+			<p>게임의 목표는 자신의 핸드(카드 조합)를 사용하여 공용 카드와 조합해 가장 좋은 5장의 패를 만들어 내는 것입니다. 게임은 아래와 같은 단계로 진행됩니다.</p>
+			<ul class="list-disc px-6 space-y-3">
+				<li>Blind 배팅: 게임의 시작에서 두 명의 플레이어가 '스몰 블라인드'와 '빅 블라인드'라고 불리는 작은 금액의 배팅을 합니다.</li>
+				<li>홀 카드 나누기: 각 플레이어는 두 장의 카드를 받습니다. 이러한 카드를 홀 카드(hole cards)라고 합니다. 플레이어들은 이 카드를 다른 플레이어들에게 공개하지 않습니다.</li>
+				<li>플로플: 세 번의 공용 카드가 덱에서 뽑힙니다. 이 공용 카드를 '플로플(flop)'라고 부릅니다. 플로플은 모두의 볼링(blind) 이후에 공개됩니다.</li>
+				<li>턴: 플로플 이후에 한 장의 추가 공용 카드가 공개됩니다. 이를 '턴(turn)' 카드라고 합니다.</li>
+				<li>리버: 턴 이후에 마지막으로 한 장의 추가 공용 카드가 공개됩니다. 이를 '리버(river)' 카드라고 합니다.</li>
+				<li>패 결정: 이제 각 플레이어는 홀 카드와 공용 카드를 조합하여 가장 좋은 5장의 패를 만들어 냅니다. 더 높은 패를 가진 플레이어가 해당 판의 승리자가 됩니다.</li>
+				<li>쇼다운: 패를 결정한 후, 최소 두 명의 플레이어가 남아있다면, 이제 그들은 패를 공개하고 승자를 가립니다. 높은 패를 가진 플레이어가 승리하게 됩니다.</li>
+			</ul>
+			<p>이러한 단계를 거쳐 가장 많은 판을 승리하는 플레이어가 최종적으로 게임에서 승리하게 됩니다. 텍사스 홀덤은 전략, 심리 전술, 계산 능력 등이 필요한 게임으로, 포커의 다양한 변종 중에서 가장 널리 플레이되는 게임 중 하나입니다.</p>
+		</div>
+	</div>
+	<div class="text-center">
+		<a class="inline-block mt-6 bg-sky-500 hover:bg-sky-400 text-slate-100 font-semibold rounded-md px-6 py-2 duration-300" href="tel:{{.Site.Config.PhoneNumber}}">홀덤 예약/문의 전화</a>
+	</div>
+</section>
+<section id="address" class="container mx-auto">
+	<div class="px-6">
+		<h2 id="about" class="text-2xl font-extrabold text-center">오시는길</h2>
+		<div class="mt-6">
+			<iframe class="w-full h-[300px] mx-auto" title="map" frameborder="0" marginheight="0" marginwidth="0" scrolling="no" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50648.09314657367!2d127.06639825!3d37.495986499999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca4235fb589fb%3A0xb331971bc570bb6a!2z7ISc7Jq47Yq567OE7IucIOqwleuCqOq1rA!5e0!3m2!1sko!2skr!4v1692507824227!5m2!1sko!2skr"></iframe>
 		</div>
 	</div>
 </section>
