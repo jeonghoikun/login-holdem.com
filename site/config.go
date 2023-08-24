@@ -36,7 +36,7 @@ func Init() {
 	c := &config{}
 	c.Port = uint32(4101)
 	c.Domain = "gn-ag-holdem.com"
-	c.Author = "kevin"
+	c.Author = "한대표"
 	c.Title = "강남홀덤 압구정홀덤 게이트"
 	c.Description = "강남홀덤 압구정홀덤 게이트는 즐거운 홀덤 포커 경험을 제공하는 최상의 오프홀덤 입니다. 강남홀덤 압구정홀덤! 프로페셔널 딜러, 다양한 테이블, 친근한 분위기로 진정한 홀덤 열정을 만끽하세요. 초보자부터 베테랑까지 모두에게 적합한 플레이 환경을 제공합니다."
 	k := Keywords([]string{"강남홀덤", "압구정홀덤", "게이트홀덤"})

@@ -651,6 +651,14 @@ video {
   margin-bottom: 2.5rem;
 }
 
+.ml-1{
+  margin-left: 0.25rem;
+}
+
+.ml-2{
+  margin-left: 0.5rem;
+}
+
 .block{
   display: block;
 }
@@ -721,6 +729,18 @@ video {
 
 .w-\[65\%\]{
   width: 65%;
+}
+
+.w-\[52px\]{
+  width: 52px;
+}
+
+.w-\[53px\]{
+  width: 53px;
+}
+
+.w-\[54px\]{
+  width: 54px;
 }
 
 .max-w-\[400px\]{
@@ -921,6 +941,11 @@ video {
   line-height: 1.25rem;
 }
 
+.text-lg{
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
 .font-semibold{
   font-weight: 600;
 }
@@ -979,6 +1004,10 @@ video {
 
 .filter{
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.duration-300{
+  transition-duration: 300ms;
 }
 
 .hover\:bg-sky-400:hover{
