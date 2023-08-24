@@ -11,7 +11,7 @@
 		<nav class="absolute top-0 inset-x-0">
 			<ul class="p-6 flex font-semibold text-center">
 				<li class="inline-block flex-1">
-					<a class="inline-block text-slate-200 hover:text-slate-100" href="#">정보</a>
+					<a class="inline-block text-slate-200 hover:text-slate-100" href="#information">정보</a>
 				</li>
 				<li class="inline-block flex-1">
 					<a class="inline-block text-slate-200 hover:text-slate-100" href="#">이벤트</a>
@@ -37,6 +37,7 @@
 			</div>
 		</div>
 	</header>
-	<main class="bg-white text-slate-900">{{embed}}</main>
+	<main class="bg-white text-slate-900 py-20 space-y-20">{{embed}}</main>
+	{{template "components/footer/global" .}}
 </body>
 </html>
