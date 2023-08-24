@@ -34,19 +34,19 @@ func date(year, month, day int) time.Time {
 
 func Init() {
 	c := &config{}
-	c.Port = uint32(8000)
-	c.Domain = "domain.com"
-	c.Author = "author"
-	c.Title = "title"
-	c.Description = "description"
-	k := Keywords([]string{"keyword1", "keyword2", "keyword3", "keyword4.."})
+	c.Port = uint32(4101)
+	c.Domain = "gn-ag-holdem.com"
+	c.Author = "kevin"
+	c.Title = "강남홀덤 압구정홀덤 :: 게이트(Gate)"
+	c.Description = "강남홀덤 압구정홀덤 게이트는 즐거운 홀덤 포커 경험을 제공하는 최상의 오프홀덤 입니다. 강남홀덤 압구정홀덤! 프로페셔널 딜러, 다양한 테이블, 친근한 분위기로 진정한 홀덤 열정을 만끽하세요. 초보자부터 베테랑까지 모두에게 적합한 플레이 환경을 제공합니다."
+	k := Keywords([]string{"강남홀덤", "압구정홀덤", "게이트홀덤"})
 	c.Keywords = &k
-	c.DatePublished = date(2023, 8, 5)
-	c.DateModified = date(2023, 8, 5)
+	c.DatePublished = date(2023, 8, 23)
+	c.DateModified = date(2023, 8, 23)
 	// 업종마다 전화번호가 다른경우 store/store.go 파일의 setPhoneNumber 함수에서 하드코딩
-	c.PhoneNumber = "010-1234-1234"
+	c.PhoneNumber = "010-5900-9210"
 	c.SearchEngineConnection = &searchEngineConnection{
-		Google: "GOOGLE_SITE_VERIFICATION",
+		Google: "uB7ecmImPZewv2LwvJ68mQiRh31D14Tjdv2kuqqPiho",
 	}
 	Config = c
 }

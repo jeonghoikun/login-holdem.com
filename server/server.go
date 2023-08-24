@@ -8,7 +8,7 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/compress"
 	"github.com/gofiber/template/html/v2"
-	"github.com/jeonghoikun/webserver/site"
+	"github.com/jeonghoikun/gn-ag-holdem.com/site"
 )
 
 type port uint32
@@ -47,8 +47,8 @@ func engine() *html.Engine {
 func New(portNumber uint32) *Server {
 	p := port(portNumber)
 	app := fiber.New(fiber.Config{
-		AppName:      "",
-		ServerHeader: "",
+		AppName:      site.Config.Domain,
+		ServerHeader: site.Config.Domain,
 		Views:        engine(),
 	})
 	return &Server{port: &p, app: app}
@@ -66,8 +66,6 @@ func (s *Server) middlewares() {
 }
 
 func (s *Server) routes() {
-	handleCategory(s.app.Group("/category"))
-	handleStore(s.app.Group("/store"))
 	handleIndex(s.app.Group("/"))
 }
 

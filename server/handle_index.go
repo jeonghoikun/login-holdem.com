@@ -3,13 +3,11 @@ package server
 import (
 	"fmt"
 	"net/http"
-	"net/url"
 	"strings"
 	"time"
 
 	"github.com/gofiber/fiber/v2"
-	"github.com/jeonghoikun/webserver/site"
-	"github.com/jeonghoikun/webserver/store"
+	"github.com/jeonghoikun/gn-ag-holdem.com/site"
 )
 
 type indexHandler struct{}
@@ -58,44 +56,6 @@ func (*indexHandler) sitemap(c *fiber.Ctx) error {
 	ss = append(ss, fmt.Sprintf(`<loc>%s/</loc>`, host))
 	ss = append(ss, fmt.Sprintf(`<lastmod>%s</lastmod>`, dateModified))
 	ss = append(ss, `</url>`)
-
-	// Custom: Categories by store type in Gangnam-gu, Seoul
-	categories := []string{}
-	for _, s := range store.ListAllStores() {
-		do := url.QueryEscape(s.Location.Do)
-		si := url.QueryEscape(s.Location.Si)
-		storeType := url.QueryEscape(s.Type)
-		var has bool
-		for _, category := range categories {
-			if category == fmt.Sprintf("%s:%s:%s", do, si, storeType) {
-				has = true
-				break
-			}
-		}
-		if has {
-			continue
-		}
-		ss = append(ss, `<url>`)
-		ss = append(ss, fmt.Sprintf(`<loc>%s/category/%s/%s/%s</loc>`, host, do, si, storeType))
-		dateModified = s.DateModified.Format(time.RFC3339)
-		ss = append(ss, fmt.Sprintf(`<lastmod>%s</lastmod>`, dateModified))
-		ss = append(ss, `</url>`)
-		categories = append(categories, fmt.Sprintf("%s:%s:%s", do, si, storeType))
-	}
-
-	// stores
-	for _, s := range store.ListAllStores() {
-		ss = append(ss, `<url>`)
-		do := url.QueryEscape(s.Location.Do)
-		si := url.QueryEscape(s.Location.Si)
-		dong := url.QueryEscape(s.Location.Dong)
-		storeType := url.QueryEscape(s.Type)
-		storeTitle := url.QueryEscape(s.Title)
-		ss = append(ss, fmt.Sprintf(`<loc>%s/store/%s/%s/%s/%s/%s</loc>`, host, do, si, dong, storeType, storeTitle))
-		dateModified = s.DateModified.Format(time.RFC3339)
-		ss = append(ss, fmt.Sprintf(`<lastmod>%s</lastmod>`, dateModified))
-		ss = append(ss, `</url>`)
-	}
 
 	ss = append(ss, `</urlset>`)
 	c.Response().Header.Add("Content-Type", "application/xml")

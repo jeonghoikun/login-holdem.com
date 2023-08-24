@@ -1,4 +1,4 @@
-module github.com/jeonghoikun/webserver
+module github.com/jeonghoikun/gn-ag-holdem.com
 
 go 1.19
 
