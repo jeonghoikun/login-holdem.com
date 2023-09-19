@@ -6,46 +6,9 @@
 	{{template "components/head/styles"}}
 	{{template "components/head/scripts"}}
 </head>
-<body class="antialiased bg-[#020230] text-slate-300">
-	<header class="w-full h-screen relative container mx-auto">
-		<div class="sm:absolute top-0 inset-x-0 w-full sm:flex items-center justify-between p-6 space-y-3 sm:space-y-0">
-			<div>
-				<img class="block w-10 mx-auto" src="/static/img/site/logo/96.png" alt="{{.Site.Config.Title}} 로고">
-			</div>
-			<nav>
-				<ul class="font-semibold text-center text-slate-100 space-x-3 sm:space-x-10 space-y-3 sm:space-y-0">
-					<li class="inline-block flex-1">
-						<a href="#information">정보</a>
-					</li>
-					<li class="inline-block flex-1">
-						<a href="#about">소개</a>
-					</li>
-					<li class="inline-block flex-1">
-						<a href="#image">사진</a>
-					</li>
-					<li class="inline-block flex-1">
-						<a href="#holdem">텍사스홀덤</a>
-					</li>
-					<li class="inline-block flex-1">
-						<a href="#address">오시는길</a>
-					</li>
-				</ul>
-			</nav>
-		</div>
-		<div class="mt-6 sm:mt-0 sm:flex items-center justify-center h-full max-w-[1170px] mx-auto">
-			<div class="sm:flex items-center justify-center px-6">
-				<div class="flex-1">
-					<h1 class="text-3xl text-slate-100 font-extrabold">{{.Page.Title}}</h1>
-					<p class="mt-8 text-slate-100 text-sm font-semibold">{{.Page.Description}}</p>
-					<a class="inline-block mt-6 bg-sky-500 hover:bg-sky-400 text-slate-100 font-semibold rounded-md px-6 py-2 duration-300" href="tel:{{.Site.Config.PhoneNumber}}">오프홀덤 문의 전화</a>
-				</div>
-				<div class="flex-1 mt-3 sm:mt-0">
-					<lottie-player class="w-[65%] mx-auto" src="https://lottie.host/2d888e20-2ed8-48cb-a628-cab94702b6c2/XKBOF5O9DY.json" speed="1" loop autoplay direction="1" mode="normal"></lottie-player>
-				</div>
-			</div>
-		</div>
-	</header>
-	<main class="bg-white text-slate-900 py-20 space-y-20">{{embed}}</main>
+<body class="">
+	{{template "components/header/global" .}}
+	<main class="">{{embed}}</main>
 	{{template "components/footer/global" .}}
 </body>
 </html>

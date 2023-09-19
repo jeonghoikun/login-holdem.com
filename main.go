@@ -4,8 +4,8 @@ import (
 	"log"
 	"time"
 
-	"github.com/jeonghoikun/gn-ag-holdem.com/server"
-	"github.com/jeonghoikun/gn-ag-holdem.com/site"
+	"github.com/jeonghoikun/holdem-kingdom.com/server"
+	"github.com/jeonghoikun/holdem-kingdom.com/site"
 )
 
 func init() {

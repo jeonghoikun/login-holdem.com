@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/gofiber/fiber/v2"
-	"github.com/jeonghoikun/gn-ag-holdem.com/site"
+	"github.com/jeonghoikun/holdem-kingdom.com/site"
 )
 
 type indexHandler struct{}

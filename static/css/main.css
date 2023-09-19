@@ -1151,24 +1151,16 @@ video {
     display: grid;
   }
 
-  .sm\:w-\[65\%\]{
-    width: 65%;
-  }
-
-  .sm\:w-\[50\%\]{
-    width: 50%;
-  }
-
-  .sm\:w-\[40\%\]{
-    width: 40%;
+  .sm\:w-\[20\%\]{
+    width: 20%;
   }
 
   .sm\:w-\[30\%\]{
     width: 30%;
   }
 
-  .sm\:w-\[20\%\]{
-    width: 20%;
+  .sm\:w-\[50\%\]{
+    width: 50%;
   }
 
   .sm\:grid-cols-2{

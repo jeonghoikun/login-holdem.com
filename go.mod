@@ -1,4 +1,4 @@
-module github.com/jeonghoikun/gn-ag-holdem.com
+module github.com/jeonghoikun/holdem-kingdom.com
 
 go 1.19
 
