@@ -1,3 +1,39 @@
-<header>
-    header
+<header class="container mx-auto border-b">
+    <h1 class="flex flex-col sm:flex-row pt-10 sm:pl-10">
+        <div class="flex-1 mx-auto w-full sm:w-[50%]">
+            <img src="/static/img/site/author/profile.png">
+        </div>
+        <div class="flex-1 sm:self-center m-8 space-y-4">
+            <p class="text-3xl font-bold">{{.Site.Config.Title}}</p>
+            <p class="break-all">{{.Site.Config.Description}}</p>
+
+            <a class="block w-fit rounded border border-white p-4 mx-auto mt-6" href="tel:{{.Site.Config.PhoneNumber}}">
+                <svg xmlns="http://www.w3.org/2000/svg" class="inline-block icon icon-tabler icon-tabler-crown" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M12 6l4 6l5 -4l-2 10h-14l-2 -10l5 4z"></path>
+                </svg>
+                홀덤킹덤 문의
+            </a>
+        </div>
+    </h1>
+
+    <nav class="mt-8 mb-10">
+        <ul class="font-semibold text-center space-x-3 sm:space-x-10 space-y-3 sm:space-y-0">
+            <li class="inline-block flex-1 rounded p-2 border border-white">
+                <a href="#information">정보</a>
+            </li>
+            <li class="inline-block flex-1 rounded p-2 border border-white">
+                <a href="#about">소개</a>
+            </li>
+            <li class="inline-block flex-1 rounded p-2 border border-white">
+                <a href="#image">사진</a>
+            </li>
+            <li class="inline-block flex-1 rounded p-2 border border-white">
+                <a href="#holdem">텍사스홀덤</a>
+            </li>
+            <li class="inline-block flex-1 rounded p-2 border border-white">
+                <a href="#address">오시는길</a>
+            </li>
+        </ul>
+    </nav>
 </header>
