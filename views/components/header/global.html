@@ -1,4 +1,33 @@
 <header class="container mx-auto border-b">
+    
+    <div class="fixed flex top-0 w-full h-16 items-center flex-col sm:flex-row md:flex-row">
+        <div class="flex-1 font-bold p-4">
+            {{.Site.Config.Title}}
+        </div>
+
+        <nav class="flex-1">
+            <ul class="grid grid-rows gap-3 font-bold text-white text-sm">
+                <li class="hover:text-black">
+                    <a href="#information">정보</a>
+                </li>
+                <li class="hover:text-black">
+                    <a href="#about">소개</a>
+                </li>
+                <li class="hover:text-black">
+                    <a href="#image">사진</a>
+                </li>
+                <li class="hover:text-black">
+                    <a href="#holdem">텍사스홀덤</a>
+                </li>
+                <li class="hover:text-black">
+                    <a href="#address">오시는길</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- <dotlottie-player src="https://lottie.host/a841f152-d086-4433-9157-846c874aa31f/TCPJolzsUQ.json" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></dotlottie-player> -->
+
     <h1 class="flex flex-col sm:flex-row pt-10 sm:pl-10">
         <div class="flex-1 mx-auto w-full sm:w-[50%]">
             <img src="/static/img/site/author/profile.png">
@@ -17,23 +46,5 @@
         </div>
     </h1>
 
-    <nav class="mt-8 mb-10">
-        <ul class="font-semibold text-center space-x-3 sm:space-x-10 space-y-3 sm:space-y-0">
-            <li class="inline-block flex-1 rounded p-2 border border-white">
-                <a href="#information">정보</a>
-            </li>
-            <li class="inline-block flex-1 rounded p-2 border border-white">
-                <a href="#about">소개</a>
-            </li>
-            <li class="inline-block flex-1 rounded p-2 border border-white">
-                <a href="#image">사진</a>
-            </li>
-            <li class="inline-block flex-1 rounded p-2 border border-white">
-                <a href="#holdem">텍사스홀덤</a>
-            </li>
-            <li class="inline-block flex-1 rounded p-2 border border-white">
-                <a href="#address">오시는길</a>
-            </li>
-        </ul>
-    </nav>
+    
 </header>

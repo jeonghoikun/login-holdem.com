@@ -5,8 +5,10 @@
 	{{template "components/head/seo" .}}
 	{{template "components/head/styles"}}
 	{{template "components/head/scripts"}}
+
+	<script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
 </head>
-<body class="antialiased bg-stone-900 text-white">
+<body class="antialiased bg-red-100">
 	{{template "components/header/global" .}}
 	<main class="container mx-auto">{{embed}}</main>
 	{{template "components/footer/global" .}}
